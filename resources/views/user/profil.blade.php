@@ -23,7 +23,7 @@
             <img src="{{asset('image/logo.png')}}" alt="" width="70" height="70" class="d-inline-block align-text-top"
                 href="#">
             <a class="navbar-brand" href="#"
-                style="font-family:Poppins; font-size:25px; font-weight:bold; color:#DA2871;">
+                style="font-family:century gothic; font-size:25px; font-weight:bold; color:#DA2871;">
                 Sikesmas
             </a>
             <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
@@ -32,7 +32,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ms-auto me-5" style="font-family:Poppins; font-size:17px;">
+                <div class="navbar-nav ms-auto me-5" style="font-family:century gothic; font-size:17px;">
                     @if (session('login'))
                     <a class="nav-link" href="/">Home</a>
                     <a class="nav-link" href="#">Layanan</a>
@@ -55,8 +55,8 @@
     <div class="container sm">
         <div class="card layout5" style="width: 100%; background:#F4F3EE;">
             <div class="card-body">
-                <h5 class="card-title poppins">Home > Profil Pasien</h5>
-                <h5 class="card-title poppins fw-bold" style="color:#5BD5CF;margin:20px 0 0 15px">{{ $user -> nama_pasien }}</h5>
+                <h5 class="card-title century gothic">Home > Profil Pasien</h5>
+                <h5 class="card-title century gothic fw-bold" style="color:#5BD5CF;margin:20px 0 0 15px">{{ $user -> nama_pasien }}</h5>
                 <div class="row">
                     <div class="col-6" style="margin:20px 0 0 15px">
                         <img class="rounded-profil" src="{{asset('image/profil.jpg')}}">
@@ -107,7 +107,7 @@
                     </div>
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <a class="btn btn-2 poppins fw-bold" style="margin-right:40px;"
+                    <a class="btn btn-2 century gothic fw-bold" style="margin-right:40px;"
                         href="/pasien/{{session('id')}}/edit">Edit</a>
                 </div>
             </div>

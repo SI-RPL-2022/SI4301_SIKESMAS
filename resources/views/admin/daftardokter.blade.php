@@ -1,7 +1,7 @@
 @extends('template.templateadmin')
 @section('content')
 <div class="container-fluid sm layout10">
-    <h5 class="poppins fw-bold" style="color:#DA2871">Daftar Dokter</h5>
+    <h5 class="century gothic fw-bold" style="color:#DA2871">Daftar Dokter</h5>
     <div class="container sm">
         <table class="table table-borderless">
             <thead style="background:#5BD5CF">

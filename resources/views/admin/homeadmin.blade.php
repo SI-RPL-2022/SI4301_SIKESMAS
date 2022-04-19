@@ -1,7 +1,7 @@
 @extends('template.templateadmin')
 @section('content')
 <div class="container-fluid sm layout8">
-    <h3 class="poppins">Welcome, <b>{{ $superadmin -> username }}</b></h3>
+    <h3 class="century gothic">Welcome, <b>{{ $superadmin -> username }}</b></h3>
     <div class="container sm" style="margin-top:50px;">
         <div class="row row-cols-1 row-cols-md-2 g-5">
             <div class="col">
@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <p class="card-text">Disini anda bisa menambahkan akses untuk,
                             Admin Sikesmas.</p>
-                        <a href="/tambahadmin" class="btn btn-2 poppins fw-bold">Tambah Admin</a>
+                        <a href="/tambahadmin" class="btn btn-2 century gothic fw-bold">Tambah Admin</a>
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
                     <div class="card-body">
                         <p class="card-text">Disini anda bisa menambahkan akses untuk,
                             Dokter Sikesmas.</p>
-                        <a href="/tambahdokter" class="btn btn-2 poppins fw-bold">Tambah Dokter</a>
+                        <a href="/tambahdokter" class="btn btn-2 century gothic fw-bold">Tambah Dokter</a>
                     </div>
                 </div>
             </div>

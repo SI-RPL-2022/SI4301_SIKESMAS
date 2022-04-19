@@ -3,7 +3,7 @@
 <div class="bg3">
     <div class="card text-center layreg" style="width: 50rem;">
         <div class="card-body">
-            <h3 class="card-title poppins">Daftar</h3>
+            <h3 class="card-title century gothic">Daftar</h3>
             <form action="/pasien" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-floating mb-3">
@@ -35,10 +35,10 @@
                     <label for="pass">Password</label>
                 </div>
                 <div class="layreg1">
-                    <button type="submit" class="btn btn-2 poppins fw-bold">Daftar</button>
+                    <button type="submit" class="btn btn-2 century gothic fw-bold">Daftar</button>
                 </div>
             </form>
-            <p class="poppins">Website | Copyright Sikesmas 2021</p>
+            <p class="century gothic">Website | Copyright Sikesmas 2021</p>
         </div>
     </div>
     <br>

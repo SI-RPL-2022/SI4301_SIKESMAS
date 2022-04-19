@@ -6,8 +6,8 @@
         @csrf
         @method('PUT')
             <div class="card-body">
-                <h5 class="card-title poppins">Home > Update Profil Pasien</h5>
-                <h5 class="card-title poppins fw-bold" style="color:#5BD5CF;margin:20px 0 0 15px">
+                <h5 class="card-title century gothic">Home > Update Profil Pasien</h5>
+                <h5 class="card-title century gothic fw-bold" style="color:#5BD5CF;margin:20px 0 0 15px">
                     {{ $user -> nama_pasien }}
                 </h5>
                 <div class="row">
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn btn-2 poppins fw-bold" style="margin-right:40px;" type="submit">Save Edit</button>
+                    <button class="btn btn-2 century gothic fw-bold" style="margin-right:40px;" type="submit">Save Edit</button>
                 </div>
             </div>
         </form>
