@@ -1,9 +1,9 @@
 @extends('template.templateadmin')
 @section('content')
 <div class="container-fluid sm layout8">
-    <h3 class="poppins">Welcome, <b>Super Admin</b></h3>
+    <h3 class="century gothic">Welcome, <b>Super Admin</b></h3>
     <div class="container sm" style="margin-top:50px;">
-        <h5 class="poppins fw-bold" style="color:#DA2871">Tambah Dokter</h5>
+        <h5 class="century gothic fw-bold" style="color:#DA2871">Tambah Dokter</h5>
         <div class="container sm translate-middle-x start-50 position-absolute">
             <form method="POST" action="{{ route('tambahdokter') }}" enctype="multipart/form-data">
                 @csrf
@@ -79,7 +79,7 @@
                         <input type="password" class="form-control" id="pass" name="pass">
                     </div>
                 </div>
-                <button class="btn btn-2 poppins fw-bold" type="submit">Tambah</button>
+                <button class="btn btn-2 century gothic fw-bold" type="submit">Tambah</button>
             </form>
         </div>
     </div>

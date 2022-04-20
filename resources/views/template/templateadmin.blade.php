@@ -22,7 +22,7 @@
         <div class="container-fluid">
             <img src="image/logo.png" alt="" width="70" height="70" class="d-inline-block align-text-top" href="#">
             <a class="navbar-brand" href="#"
-                style="font-family:Poppins; font-size:25px; font-weight:bold; color:#DA2871;">
+                style="font-family:century gothic; font-size:25px; font-weight:bold; color:#DA2871;">
                 Sikesmas
             </a>
             <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
@@ -31,7 +31,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ms-auto me-5" style="font-family:Poppins; font-size:17px;">
+                <div class="navbar-nav ms-auto me-5" style="font-family:century gothic; font-size:17px;">
                     <a class="nav-link" href="/home">Home</a>
                     <a class="nav-link" href="/admin">Daftar Admin</a>
                     <a class="nav-link" href="{{ route('indexDokter') }}">Daftar Dokter</a>
