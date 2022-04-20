@@ -86,6 +86,14 @@ class user_controller extends Controller
      */
     public function update(Request $request, $id)
     {
+        $pasien = pasien_model::find($id);
+        $imgName = $pasien->img_path;
+        if ($request->img_path){
+            $imgName = $request->img_path->getClientOriginalName() . '-' . time()
+                        . '.' . $request->img_path->extension();
+            $request->img_path->move(public_path('foto_profil'), $imgName);
+        }
+
         $data = pasien_model::where('id_pasien',$id)->firstOrFail();
         if ($request->pass == $data->password){
             pasien_model::find($id)->update([
@@ -93,7 +101,8 @@ class user_controller extends Controller
                 'nik' => $request ->nik,
                 'nama_pasien' => $request ->nama,
                 'jenis_kelamin' => $request ->jenis_kelamin,
-                'no_hp' => $request ->noHP
+                'no_hp' => $request ->noHP,
+                'foto_profil' => $imgName
             ]);
 
             return redirect("/profil");

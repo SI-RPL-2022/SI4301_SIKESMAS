@@ -2,17 +2,27 @@
 @section('content')
 <div class="container sm">
     <div class="card layout5" style="width: 100%; background:#F4F3EE;">
-        <form action="/pasien/{{session('id')}}" method="POST" enctype="multipart/form-data"> 
-        @csrf
-        @method('PUT')
+        <form action="/pasien/{{session('id')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
             <div class="card-body">
-                <h5 class="card-title century gothic">Home > Update Profil Pasien</h5>
-                <h5 class="card-title century gothic fw-bold" style="color:#5BD5CF;margin:20px 0 0 15px">
+                <h5 class="card-title poppins">Home > Update Profil Pasien</h5>
+                <h5 class="card-title poppins fw-bold" style="color:#5BD5CF;margin:20px 0 0 15px">
                     {{ $user -> nama_pasien }}
                 </h5>
                 <div class="row">
                     <div class="col-6" style="margin:20px 0 0 15px">
+                        @if ( $user -> foto_profil == null)
                         <img class="rounded-profil" src="{{asset('image/profil.jpg')}}">
+                        @else
+                        <img class="rounded-profil" src="{{ asset('/foto_profil/'.$user->foto_profil) }}">
+                        @endif
+                        <div class="row">
+                            <label>
+                                <input type="file" style="display: none;" name="img_path">
+                                <p style="margin-left:30px; color:rgba(0, 0, 0, 0.5);"><u>Upload Foto</u></p>
+                            </label>
+                        </div>
                     </div>
                     <div class="col">
                         <div class="mb-3 row">
@@ -59,7 +69,8 @@
                     </div>
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn btn-2 century gothic fw-bold" style="margin-right:40px;" type="submit">Save Edit</button>
+                    <button class="btn btn-2 poppins fw-bold" style="margin-right:40px;" type="submit">Save
+                        Edit</button>
                 </div>
             </div>
         </form>
