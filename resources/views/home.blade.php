@@ -152,7 +152,7 @@
                     dengan mudah
                     tanpa ribet dengan sekali klik.</p>
                 <div class="d-flex justify-content-center">
-                    <a href=" " class="btn btn-1">Booking</a>
+                    <a href="/booking" class="btn btn-1">Booking</a>
                 </div>
             </div>
         </div>

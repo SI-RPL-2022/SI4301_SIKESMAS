@@ -31,6 +31,9 @@ Route::get('/regis', function () {
 Route::get('/login', function () {
     return view('user.login');
 });
+Route::get('/booking', function () {
+    return view('user.bookingantrian');
+});
 Route::get('/profil', function () {
     if (session('login')){
         $id = session('id');
