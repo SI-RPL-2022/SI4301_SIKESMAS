@@ -13,17 +13,23 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pasien', function (Blueprint $table) {
-            $table->bigIncrements('id_pasien')->unsigned();
-            $table->string('no_bpjs');
-            $table->string('nik');
-            $table->string('nama_pasien');
+        Schema::create('user', function (Blueprint $table) {
+            $table->bigIncrements('id')->unsigned();
+            $table->string('role');
+            $table->string('no_bpjs')->nullable();
+            $table->string('nik')->nullable();
+            $table->string('nama');
             $table->string('jenis_kelamin')->nullable();
-            $table->string('no_hp');
+            $table->string('no_hp')->nullable();
             $table->string('username')->nullable();
             $table->string('password')->nullable();
             $table->string('no_antrian')->nullable();
             $table->string('foto_profil')->nullable();
+            $table->foreignId('id_poli')->nullable();
+            $table->string('jam_praktik_awal')->nullable();
+            $table->string('jam_praktik_akhir')->nullable();
+
+            $table->foreign('id_poli')->references('id')->on('poli');
         });
     }
 
@@ -34,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pasien');
+        Schema::dropIfExists('user');
     }
 };

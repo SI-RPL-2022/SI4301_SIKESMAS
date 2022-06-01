@@ -2,9 +2,6 @@ body, html{
     height: 100%;
 }
 /* Text */
-.poppins {
-    font-family:Poppins;
-}
 
 .text {
     margin-top: 2rem;
@@ -206,3 +203,216 @@ body, html{
     height: 5rem;
 
 }
+
+#layanan .margin {
+    margin-top:50px;
+}
+
+.footer{
+    background: #5BD5CF;
+    bottom: 0;
+    position: absolute;   
+}
+
+#keluhan .margin{
+    border-radius: 10px;
+    background-color: #F4F3EE;
+}
+
+#keluhan .judul{
+    padding: 50px 0 0 50px;
+}
+
+#keluhan .kotak{
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    padding: 50px 0 0 0;
+    background-color: #F4F3EE;
+    
+}
+
+#keluhan .btn-2{
+    margin: 0 auto;
+    width: 50%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    color: white;
+	background-color: #DA2871;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 5px;
+}
+
+#jadwal .drop{
+    background: black;
+    color: white;
+}
+
+#jadwal .margin-top{
+    margin-top: 50px;
+}
+
+#jadwal .padding{
+    padding: 50px 20px 0 50px;
+}
+
+#jadwal .btn-2{
+    margin: 0 auto;
+    color: white;
+	background-color: #DA2871;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 5px;
+}
+#jadwal .lh{
+    line-height: 5px;
+}
+
+#antrian .card{
+    margin: 0 auto;
+    background: #F4F3EE;
+}
+
+#antrian .btn-2{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    color: white;
+	background-color: #DA2871;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 5px;
+}
+
+#daftarAntrian .container{
+    background-color: #F4F3EE;
+    padding: 25px 50px 50px 50px;
+    border-radius: 10px;
+}
+#daftarAntrian .title{
+    color:#5BD5CF;
+    margin-bottom:25px;
+}
+#daftarAntrian thead{
+    background-color: #C4C4C4;
+}
+#daftarAntrian .baris{
+    background-color: white;
+    line-height: 50px;
+}
+#daftarAntrian .btn-2{
+    color: white;
+	background-color: #DA2871;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 5px;
+}
+#inputkeluhan .container{
+    background-color: #F4F3EE;
+    padding: 50px 0 50px 50px;
+    border-radius: 10px;
+}
+#inputkeluhan .title{
+    color: #5BD5CF;
+    margin-bottom:20px;
+}
+#inputkeluhan .kotak{
+    height: auto;
+    width: 50%;
+    background-color: #F4F3EE;
+    margin: 0 auto;
+}
+#inputkeluhan .btn-2{
+    margin: 0 auto;
+    width: 30%;
+    color: white;
+	background-color: #DA2871;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 5px;
+}
+
+#homeDokter .container{
+    background-color: #F4F3EE;
+    padding: 50px 0 50px 50px;
+    border-radius: 10px;
+}
+
+#homeDokter .kotak{
+    height: auto;
+    width: 75%;
+    background-color: #F4F3EE;
+    margin: 0 auto;
+    margin-top:50px;
+}
+
+#homeDokter .rounded-profil{
+    border-radius: 300px;
+    -webkit-border-radius: 300px;
+    -moz-border-radius: 300px;
+    width: 250px;
+    height: 250px;
+}
+#homeDokter .profil{
+    margin-top:30px;
+}
+
+#AntrianPasien .container{
+    background-color: #E5E5E5;
+    padding: 50px 50px 50px 50px;
+}
+#AntrianPasien .nama{
+    font-size: 20px;
+    line-height: 5px;
+}
+#AntrianPasien .dokter{
+    line-height: 20px;
+}
+#AntrianPasien .title{
+    margin-left:50px;
+    line-height: 5px;
+}
+#AntrianPasien .isi{
+    margin-left:50px;
+}
+#AntrianPasien .ambil{
+    color: black;
+}
+#AntrianPasien .btn-2{
+    margin-left:30%;
+    width: 30%;
+    color: white;
+	background-color: #DA2871;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 5px;
+}
+#resepObat .container{
+    background-color: #F4F3EE;
+    padding: 50px 100px 50px 100px;
+}
+#resepObat .card{
+    background-color: #DA2871;
+    margin: 0 auto;
+    padding: 20px 20px 20px 20px;
+    color: white;
+}
+#bookKamar .container{
+    background-color: #F4F3EE;
+    padding: 50px 100px 50px 100px;
+}
+#bookKamar .card{
+    background-color: #DA2871;
+    margin: 0 auto;
+    color: white;
+}
+#bookKamar .btn-1{
+    color: white;
+	background-color: #5BD5CF;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-radius: 5px;
+    font-weight: bold;
+}
+
+

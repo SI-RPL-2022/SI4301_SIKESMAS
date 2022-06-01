@@ -1,9 +1,9 @@
 @extends('template.templateadmin')
 @section('content')
 <div class="container-fluid sm layout8">
-    <h3 class="century gothic">Welcome, <b>Super Admin</b></h3>
+    <h3 class="poppins">Welcome, <b>Super Admin</b></h3>
     <div class="container sm" style="margin-top:50px;">
-        <h5 class="century gothic fw-bold" style="color:#DA2871">Tambah Dokter</h5>
+        <h5 class="poppins fw-bold" style="color:#DA2871">Tambah Dokter</h5>
         <div class="container sm translate-middle-x start-50 position-absolute">
             <form method="POST" action="{{ route('tambahdokter') }}" enctype="multipart/form-data">
                 @csrf
@@ -23,13 +23,13 @@
                     <label for="noHP" class="col-sm-2 col-form-label fw-bold">Poli</label>
                     <div class="col-sm-2">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="poli" id="poli1" value="Poli Gigi">
+                            <input class="form-check-input" type="radio" name="poli" id="poli1" value="1">
                             <label class="form-check-label" for="poli1">
                                 Poli Gigi
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="poli" id="poli2" value="Poli Umum">
+                            <input class="form-check-input" type="radio" name="poli" id="poli2" value="2">
                             <label class="form-check-label" for="poli2">
                                 Poli Umum
                             </label>
@@ -37,13 +37,13 @@
                     </div>
                     <div class="col-sm-2">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="poli" id="poli3" value="Poli Anak">
+                            <input class="form-check-input" type="radio" name="poli" id="poli3" value="3">
                             <label class="form-check-label" for="poli3">
                                 Poli Anak
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="poli" id="poli4" value="Poli Kandungan">
+                            <input class="form-check-input" type="radio" name="poli" id="poli4" value="4">
                             <label class="form-check-label" for="poli4">
                                 Poli Kandungan
                             </label>
@@ -51,13 +51,13 @@
                     </div>
                     <div class="col-sm-2">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="poli" id="poli5" value="Poli Mata">
+                            <input class="form-check-input" type="radio" name="poli" id="poli5" value="5">
                             <label class="form-check-label" for="poli5">
                                 Poli Mata
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="poli" id="poli6" value="Poli Medical Check-up">
+                            <input class="form-check-input" type="radio" name="poli" id="poli6" value="6">
                             <label class="form-check-label" for="poli6">
                                 Poli Medical Check-up
                             </label>
@@ -79,7 +79,7 @@
                         <input type="password" class="form-control" id="pass" name="pass">
                     </div>
                 </div>
-                <button class="btn btn-2 century gothic fw-bold" type="submit">Tambah</button>
+                <button class="btn btn-2 poppins fw-bold" type="submit">Tambah</button>
             </form>
         </div>
     </div>

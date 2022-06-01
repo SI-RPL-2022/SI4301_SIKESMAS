@@ -1,29 +1,38 @@
 @extends('template.template')
 @section('content')
 <div class="bg3">
-    <div class="card text-center layreg" style="width: 50rem;">
+    <div class="card layreg" style="width: 50rem;">
         <div class="card-body">
-            <h3 class="card-title century gothic">Daftar</h3>
+            <h3 class="card-title text-center">Daftar</h3>
             <form action="/pasien" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="nik" placeholder="NIK" name="nik">
+                    <input type="number" class="form-control" id="nik" placeholder="NIK" name="nik" maxLength="5">
                     <label for="nik">NIK</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="bpjs" placeholder="No BPJS" name="bpjs">
+                    <input type="number" class="form-control" id="bpjs" placeholder="No BPJS" name="bpjs">
                     <label for="bpjs">No BPJS</label>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="nama" placeholder="Nama Lengkap" name="nama">
                     <label for="nama">Nama Lengkap</label>
                 </div>
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="jeniskelamin" placeholder="Jenis Kelamin" name="jenis_kelamin">
-                    <label for="jeniskelamin">Jenis Kelamin</label>
+                <label for="exampleFormControlInput1" class="form-label">Jenis Kelamin</label>
+                <div class="mb-3">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="jenis_kelamin" id="inlineRadio1"
+                            value="Laki - Laki">
+                        <label class="form-check-label" for="inlineRadio1">Laki - Laki</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="jenis_kelamin" id="inlineRadio2"
+                            value="Perempuan">
+                        <label class="form-check-label" for="inlineRadio2">Perempuan</label>
+                    </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="phone" class="form-control" id="noHP" placeholder="No. HP" name="noHP">
+                    <input type="number" class="form-control" id="noHP" placeholder="No. HP" name="noHP">
                     <label for="noHP">No. HP</label>
                 </div>
                 <div class="form-floating mb-3">
@@ -34,11 +43,10 @@
                     <input type="password" class="form-control" id="pass" placeholder="password" name="pass">
                     <label for="pass">Password</label>
                 </div>
-                <div class="layreg1">
-                    <button type="submit" class="btn btn-2 century gothic fw-bold">Daftar</button>
+                <div class="layreg1 text-center">
+                    <button type="submit" class="btn btn-2 poppins fw-bold">Daftar</button>
                 </div>
             </form>
-            <p class="century gothic">Website | Copyright Sikesmas 2021</p>
         </div>
     </div>
     <br>

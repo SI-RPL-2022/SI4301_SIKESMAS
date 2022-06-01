@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kamar_inap', function (Blueprint $table) {
-            $table->bigIncrements('id_kamar')->unsigned();
-            $table->string('nama_kamar');
-            $table->string('no_kamar');
+        Schema::create('poli', function (Blueprint $table) {
+            $table->bigIncrements('id')->unsigned();
+            $table->string('nama_poli');
+            $table->string('foto');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kamar_inap');
+        Schema::dropIfExists('poli');
     }
 };
