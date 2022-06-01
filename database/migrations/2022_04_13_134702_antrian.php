@@ -14,10 +14,22 @@ return new class extends Migration
     public function up()
     {
         Schema::create('antrian', function (Blueprint $table) {
-            $table->bigIncrements('id_antrian')->unsigned();
+            $table->bigIncrements('id')->unsigned();
+            $table->foreignId('id_pasien');
+            $table->foreignId('id_dokter');
+            $table->foreignId('id_poli');
             $table->string('no_antrian');
-            $table->string('nama_pasien');
-            $table->string('nama_poli');
+            $table->text('keluhan')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('lama_keluhan')->nullable();
+            $table->text('hasil_periksa')->nullable();
+            $table->string('tindakan')->nullable();
+            $table->string('status')->nullable();
+            $table->string('waktu_periksa')->nullable();
+
+            $table->foreign('id_poli')->references('id')->on('poli');
+            $table->foreign('id_pasien')->references('id')->on('user');
+            $table->foreign('id_dokter')->references('id')->on('user');
         });
     }
 
@@ -28,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('antrian');
     }
 };

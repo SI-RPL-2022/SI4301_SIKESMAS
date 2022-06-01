@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\superadmin_model;
 use App\Models\admin_model;
 use App\Models\dokter_model;
+use App\Models\antrian_model;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
@@ -18,12 +20,12 @@ class admin_controller extends Controller
      */
     public function index()
     {
-        $admin = admin_model::orderBy('id_admin','asc')->get();
+        $admin = User::where('role','Admin')->get();
         return view('admin.daftaradmin', compact('admin'));
     }
     public function indexDokter()
     {
-        $dokter = dokter_model::orderBy('id_dokter','asc')->get();
+        $dokter = User::where('role','Dokter')->with('poli')->get();
         return view('admin.daftardokter', compact('dokter'));
     }
 
@@ -45,11 +47,12 @@ class admin_controller extends Controller
      */
     public function store(Request $request)
     {
-        if (admin_model::where('nama_admin',$request->nama)->exists()){
+        if (User::where('nama',$request->nama)->exists()){
             return redirect('/tambahadmin')->with('gagal_regis','Admin sudah terdaftar!');
         }else{
-            admin_model::create([
-                'nama_admin' => $request ->nama,
+            User::create([
+                'role' => "Admin",
+                'nama' => $request ->nama,
                 'no_hp' => $request ->noHP,
                 'username' => $request ->username,
                 'password' => $request ->pass
@@ -59,12 +62,13 @@ class admin_controller extends Controller
     }
     public function tambahdokter(Request $request)
     {
-        if (dokter_model::where('nama_dokter',$request->nama)->exists()){
+        if (User::where('nama',$request->nama)->exists()){
             return redirect('/tambahdokter')->with('gagal_regis','Dokter sudah terdaftar!');
         }else{
-            dokter_model::create([
-                'nama_dokter' => $request ->nama,
-                'poli_layanan' => $request ->poli,
+            User::create([
+                'role' => "Dokter",
+                'nama' => $request ->nama,
+                'id_poli' => $request ->poli,
                 'jam_praktik_awal' => $request ->jam1,
                 'jam_praktik_akhir' => $request ->jam2,
                 'username' => $request ->username,
@@ -127,15 +131,44 @@ class admin_controller extends Controller
                 session(['id_superadmin' => $data -> id_superadmin]);
                 return redirect('/home')->with('gagal','Email atau Password salah!');
             }else{
-                return redirect('/admin')->with('gagal','Email atau Password salah!');
+                return redirect('/superadmin')->with('gagal','Email atau Password salah!');
             }
         }else{
-            return redirect('/admin')->with('tidak_terdaftar','Email anda belum terdaftar');
+            return redirect('/superadmin')->with('tidak_terdaftar','Email anda belum terdaftar');
         }
     }
     public function logout(Request $request){
         $request->session()->forget('loginAdmin');
         $request->session()->forget('id_superadmin');
         return redirect('/superadmin')->with('logout','Anda telah melakukan logout!');
+    }
+
+    public function delDokter($id){
+        User::find($id)->delete();
+        return redirect('/indexDokter');
+    }
+    public function delAdmin($id){
+        User::find($id)->delete();
+        return redirect('/indexAdmin');
+    }
+
+    public function inputKeluhan($id){
+        $id_user = session('id');
+        $user = User::where('id',$id_user)->firstOrFail();
+        $antrian = antrian_model::where('id',$id)->with('poli','pasien')->firstOrFail();
+        return view('admin.inputkeluhan',compact('user','antrian'));
+    }
+
+    public function InputanKeluhan(Request $request, $id)
+    {
+        antrian_model::find($id)->update([
+            'alamat' => $request ->alamat,
+            'keluhan' => $request ->keluhan,
+            'lama_keluhan' => $request ->lama,
+            'waktu_periksa'=> join(" ",$request ->waktu),
+            'status' => 'Menunggu Hasil Periksa'
+        ]);
+
+        return redirect("/admin/daftarantrian");
     }
 }

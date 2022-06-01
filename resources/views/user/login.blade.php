@@ -3,14 +3,26 @@
 <div class="container-fluid sm">
     <div class="row">
         <div class="col-6 bg4">
-            <p class="century gothic fw-bold text-light" style="font-size:30px;margin:50% 0 0 50px">Selamat Datang di</p>
-            <h3 class="century gothic fw-bold text-light" style="font-size:50px;margin:0 0 0 50px">Puskesmas Balaraja</h3>
+            <p class="poppins fw-bold text-light" style="font-size:30px;margin:50% 0 0 50px">Selamat Datang di</p>
+            <h3 class="poppins fw-bold text-light" style="font-size:50px;margin:0 0 0 50px">Puskesmas Balaraja</h3>
         </div>
         <div class="col-6 bg7">
             <div class="card text-center layreg" style="width: 50%;">
                 <div class="card-body">
+                    @if (session('password_salah'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('password_salah') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @endif
+                    @if (session('tidak_terdaftar'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('tidak_terdaftar') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @endif
                     <img src="image/logo.png" alt="" width="100" height="100" href="#">
-                    <h3 class="card-title century gothic">Masuk</h3>
+                    <h3 class="card-title poppins">Masuk</h3>
                     <form action="{{ route('login') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-floating mb-3">
@@ -23,7 +35,7 @@
                             <label for="pass">Password</label>
                         </div>
                         <div class="layreg1">
-                            <button type="submit" class="btn btn-2 century gothic fw-bold">Masuk</button>
+                            <button type="submit" class="btn btn-2 poppins fw-bold">Masuk</button>
                         </div>
                     </form>
                 </div>

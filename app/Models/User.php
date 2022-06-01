@@ -17,11 +17,35 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $primaryKey = 'id';
+    protected $table = "user";
+    public $timestamps = false;
     protected $fillable = [
-        'name',
-        'email',
+        'id',
+        'role',
+        'no_bpjs',
+        'nik', 
+        'nama',
+        'jenis_kelamin',
+        'no_hp',
+        'username',
         'password',
+        'no_antrian',
+        'foto_profil',
+        'id_poli',
+        'jam_praktik_awal',
+        'jam_praktik_akhir'
     ];
+
+    public function poli()
+    {
+        return $this->belongsTo(poli_model::class,'id_poli');
+    }
+
+    public function antrian()
+    {
+        return $this->hasMany(antrian_model::class,'id_pasien','id_dokter');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

@@ -7,43 +7,36 @@
         <div class="card mb-3 drop" style="width:100%;">
             <div class="row g-0">
                 <div class="col-md-6">
-                    <img src="image/gigi.jpg" class="img-fluid rounded-start w-100 bw" alt="...">
+                    <img src="{{asset('/image/'.$poli->foto)}}" class="img-fluid rounded-start w-100 bw" alt="...">
                 </div>
                 <div class="col-md-6">
                     <div class="card-body padding">
-                        <h5 class="card-title">Poli Gigi</h5>
+                        <h5 class="card-title">{{$poli->nama_poli}}</h5>
                         <p class="card-text">Ini adalah contoh laman. Ini berbeda dengan
                             posting
                             blog karena akan
                             tetap berada di satu tempat dan akan muncul di website.</p>
                         <div class="row">
+                            @foreach ($polis as $p)
+                            @foreach ($p->user as $u)
                             <div class="col-sm-5">
                                 <div class="card text-dark" style="width: 15rem;">
-                                    <img src="image/gigi2.jpg" class="card-img-top" height="150px" alt="...">
+                                    <img src="{{asset('/foto_profil/'.$u->foto_profil)}}" class="card-img-top" height="150px" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title fw-bold">Drg. Albert Akbar</h5>
-                                        <p>08.30 - 11.00</p>
+                                        <h5 class="card-title fw-bold">{{$u->nama}}</h5>
+                                        <p class="lh">{{ $u -> jam_praktik_awal }} - {{ $u -> jam_praktik_akhir }}</p>
+                                        <a href="{{$poli->id}}/{{$u->id}}/antrian" class="btn btn-2 fw-bold">Booking Antrian</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-5">
-                                <div class="card text-dark" style="width: 15rem;">
-                                    <img src="image/gigi1.jpg" class="card-img-top" height="150px" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title fw-bold">Drg. Heny Marta</h5>
-                                        <p>10.30 - 13.00</p>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <a href="/tambahdokter" class="btn btn-2 fw-bold">Edit Jadwal</a>
     </div>
-    
-
 </section>
 <script>
 var tw = new Date();
