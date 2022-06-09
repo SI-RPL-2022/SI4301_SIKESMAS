@@ -7,11 +7,11 @@
             <form action="/pasien" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="nik" placeholder="NIK" name="nik" maxLength="5">
+                    <input type="number" class="form-control" id="nik" placeholder="NIK" name="nik" min="16">
                     <label for="nik">NIK</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="bpjs" placeholder="No BPJS" name="bpjs">
+                    <input type="number" class="form-control" id="bpjs" placeholder="No BPJS" name="bpjs" min="13">
                     <label for="bpjs">No BPJS</label>
                 </div>
                 <div class="form-floating mb-3">
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="noHP" placeholder="No. HP" name="noHP">
+                    <input type="number" class="form-control" id="noHP" placeholder="No. HP" name="noHP" min="10" >
                     <label for="noHP">No. HP</label>
                 </div>
                 <div class="form-floating mb-3">
