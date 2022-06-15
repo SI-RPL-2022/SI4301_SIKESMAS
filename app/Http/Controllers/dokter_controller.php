@@ -7,6 +7,7 @@ use App\Models\superadmin_model;
 use App\Models\admin_model;
 use App\Models\dokter_model;
 use App\Models\antrian_model;
+use App\Models\kamar_model;
 use App\Models\User;
 
 class dokter_controller extends Controller
@@ -25,7 +26,7 @@ class dokter_controller extends Controller
         if (session('login')){
             $id = session('id');
             $user = User::where('id',$id)->firstOrFail();
-            $antrian = antrian_model::where('id_dokter',$id)->with('poli','pasien')->get();
+            $antrian = antrian_model::where('id_dokter',$id)->where('status_antrian','Berjalan')->with('poli','pasien')->get();
             return view('dokter.antrianpasien',compact('user','antrian'));
         }else{
             return view('home');

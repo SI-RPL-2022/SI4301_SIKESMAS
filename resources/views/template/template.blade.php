@@ -17,6 +17,7 @@
 <body>
     <script src="js/bootstrap.js"></script>
     <script src="js/popper.min.js"></script>
+    <script src="js/Chart.js"></script>
 
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
@@ -37,9 +38,8 @@
                     @if ($user->role == "Pasien")
                     <a class="nav-link" href="/">Home</a>
                     <a class="nav-link" href="/layanan">Layanan</a>
-                    <a class="nav-link" href="/HasilPeriksa">Hasil Periksa</a>
-                    <a class="nav-link" href="#">Tentang Kami</a>
-                    <a class="nav-link" href="#">Tanya Dokter</a>
+                    <a class="nav-link" href="/riwayatperiksa">Riwayat Periksa</a>
+                    <a class="nav-link" href="/jadwal-dokter">Jadwal Dokter</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                             aria-expanded="true">
@@ -56,6 +56,7 @@
                     @elseif ($user->role == "Admin")
                     <a class="nav-link" href="/">Home</a>
                     <a class="nav-link" href="admin/daftarantrian">Daftar Antrian</a>
+                    <a class="nav-link" href="/daftarpasien">Data Puskesmas</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -85,8 +86,7 @@
                     @else
                     <a class="nav-link" href="/">Home</a>
                     <a class="nav-link" href="/layanan">Layanan</a>
-                    <a class="nav-link" href="#">Tentang Kami</a>
-                    <a class="nav-link" href="#">Tanya Dokter</a>
+                    <a class="nav-link" href="/jadwal-dokter">Jadwal Dokter</a>
                     <a class="nav-link" href="/regis">Daftar</a>
                     <a class="nav-link" href="/login">Login</a>
                     @endif
@@ -116,6 +116,18 @@
     @if (session('fail'))
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         {{ session('fail') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+    @if (session('berhasil_book'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('berhasil_book') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+    @if (session('review'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('review') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif

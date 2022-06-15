@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('id_pasien');
             $table->foreignId('id_dokter');
             $table->foreignId('id_poli');
+            $table->foreignId('id_kamar')->nullable();
             $table->string('no_antrian');
             $table->text('keluhan')->nullable();
             $table->string('alamat')->nullable();
@@ -25,11 +26,14 @@ return new class extends Migration
             $table->text('hasil_periksa')->nullable();
             $table->string('tindakan')->nullable();
             $table->string('status')->nullable();
+            $table->string('status_antrian')->nullable();
             $table->string('waktu_periksa')->nullable();
+            $table->timestamps();
 
             $table->foreign('id_poli')->references('id')->on('poli');
             $table->foreign('id_pasien')->references('id')->on('user');
             $table->foreign('id_dokter')->references('id')->on('user');
+            $table->foreign('id_kamar')->references('id')->on('kamar_inap');
         });
     }
 

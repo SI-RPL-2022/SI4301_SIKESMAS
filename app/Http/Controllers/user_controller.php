@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\admin_model;
 use App\Models\antrian_model;
 use App\Models\poli_model;
+use App\Models\kamar_model;
+use App\Models\keluhan_model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
@@ -164,7 +166,7 @@ class user_controller extends Controller
     public function antrian($id,$id_dokter){
         $id_user = session('id');
         $user = User::where('id',$id_user)->firstOrFail();
-        $antrian = antrian_model::where('id_poli',$id);
+        $antrian = antrian_model::where('id_poli',$id)->where('status_antrian','Berjalan');
         $poli = poli_model::findOrfail($id);
         $dokter = User::where('id',$id_dokter)->firstOrFail();
         return view('user.antrian',compact('user','antrian','poli','dokter'));
@@ -182,7 +184,8 @@ class user_controller extends Controller
             'id_pasien' => $user -> id,
             'id_poli' => $poli -> id,
             'id_dokter' => $dokter -> id,
-            'status' => 'Menunggu Input Keluhan'
+            'status' => 'Menunggu Input Keluhan',
+            'status_antrian' => 'Berjalan'
         ]);
         return redirect('/')->with('book','Anda telah berhasil melakukan Booking. Nomer Antrian anda adalah '.$antrian->count()+1);
     }
@@ -205,10 +208,42 @@ class user_controller extends Controller
         $user = User::where('id',$id_user)->firstOrFail();
         return view('user.resepObat',compact('user'));
     }
-    public function book(){
+    public function book($id){
         $id_user = session('id');
         $user = User::where('id',$id_user)->firstOrFail();
-        return view('user.bookingKamar',compact('user'));
+        $id_antrian = $id;
+        $kamar = kamar_model::orderBy('id','asc')->with('antrian')->get();
+        return view('user.bookingKamar',compact('user','kamar','id_antrian'));
+    }
+
+    public function booking($id,$idkamar) {
+        antrian_model::find($id)->update([
+            'id_kamar' => $idkamar,
+            'status' => 'Pasien Di Rawat',
+            'status_antrian' => 'Selesai'
+        ]);
+        $kamar = kamar_model::find($idkamar);
+        kamar_model::find($idkamar)->update([
+            'jumlah_kamar' => $kamar->jumlah_kamar-1
+        ]);
+
+        return redirect('/')->with('berhasil_book','Silahkan Lanjutkan administrasi di Kasir');
+    }
+
+    public function hasilPeriksa($id) {
+        $id_user = session('id');
+        $user = User::where('id',$id_user)->firstOrFail();
+        $antrian = antrian_model::where('id',$id)->with('kamar')->firstOrFail();
+        return view('user.hasilPeriksa',compact('user','antrian'));
+    }
+
+    public function review($id){
+        keluhan_model::create([
+            'id_pasien' => $id,
+            'nama_pasien' => request()->nama,
+            'review' => request()->review
+        ]);
+        return redirect('/')->with('review','Terima Kasih sudah memakai layanan kami.');
     }
 
 }

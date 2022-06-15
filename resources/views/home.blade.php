@@ -76,12 +76,11 @@
                     dengan mudah
                     tanpa ribet dengan sekali klik.</p>
                 <div class="d-flex justify-content-center">
-                    <a href=" " class="btn btn-1">Booking</a>
+                    <a href="/layanan" class="btn btn-1">Booking</a>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="container2">
         <div class="row">
             <div class="col-sm-7 bg2" style="padding: 5rem 0 0 5rem;">
@@ -126,120 +125,27 @@
     <div class="container sm layout1">
         <h3 class="text-center">Unit Layanan Puskesmas</h3>
         <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach ($poli as $p)
             <div class="col">
                 <div class="card" style="max-width: 500px;">
                     <div class="row g-0">
                         <div class="col-md-5">
-                            <img src="image/gigi.jpg" class="card-img-top h-100 bw" alt="...">
+                            <img src="image/{{$p -> foto}}" class="card-img-top h-100 bw" alt="...">
                         </div>
                         <div class="col-md-7">
                             <div class="card-body" style="background: #5BD5CF;">
-                                <h5 class="card-title poppins fw-bold text-light">Poli Gigi</h5>
+                                <h5 class="card-title poppins fw-bold text-light">{{$p->nama_poli}}</h5>
                                 <p class="card-text poppins text-light">Ini adalah contoh laman. Ini berbeda dengan
                                     posting
                                     blog karena akan
                                     tetap berada di satu tempat dan akan muncul di website.</p>
-                                <a href="#" class="btn btn-outline-light">Booking Antrian</a>
+                                <a href="layanan/{{$p -> id}}" class="btn btn-outline-light">Booking Antrian</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card" style="max-width: 500px;">
-                    <div class="row g-0">
-                        <div class="col-md-5">
-                            <img src="image/anak.jpg" class="card-img-top h-100 bw" alt="...">
-                        </div>
-                        <div class="col-md-7">
-                            <div class="card-body" style="background: #5BD5CF;">
-                                <h5 class="card-title poppins fw-bold text-light">Poli Anak</h5>
-                                <p class="card-text poppins text-light">Ini adalah contoh laman. Ini berbeda dengan
-                                    posting
-                                    blog karena akan
-                                    tetap berada di satu tempat dan akan muncul di website.</p>
-                                <a href="#" class="btn btn-outline-light">Booking Antrian</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="max-width: 500px;">
-                    <div class="row g-0">
-                        <div class="col-md-5">
-                            <img src="image/mata.jpg" class="card-img-top h-100 bw" alt="...">
-                        </div>
-                        <div class="col-md-7">
-                            <div class="card-body" style="background: #5BD5CF;">
-                                <h5 class="card-title poppins fw-bold text-light">Poli Mata</h5>
-                                <p class="card-text poppins text-light">Ini adalah contoh laman. Ini berbeda dengan
-                                    posting
-                                    blog karena akan
-                                    tetap berada di satu tempat dan akan muncul di website.</p>
-                                <a href="#" class="btn btn-outline-light">Booking Antrian</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="max-width: 500px;">
-                    <div class="row g-0">
-                        <div class="col-md-5">
-                            <img src="image/umum.jpg" class="card-img-top h-100 bw" alt="...">
-                        </div>
-                        <div class="col-md-7">
-                            <div class="card-body" style="background: #5BD5CF;">
-                                <h5 class="card-title poppins fw-bold text-light">Poli Umum</h5>
-                                <p class="card-text poppins text-light">Ini adalah contoh laman. Ini berbeda dengan
-                                    posting
-                                    blog karena akan
-                                    tetap berada di satu tempat dan akan muncul di website.</p>
-                                <a href="#" class="btn btn-outline-light">Booking Antrian</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="max-width: 500px;">
-                    <div class="row g-0">
-                        <div class="col-md-5">
-                            <img src="image/kandungan.jpg" class="card-img-top h-100 bw" alt="...">
-                        </div>
-                        <div class="col-md-7">
-                            <div class="card-body" style="background: #5BD5CF;">
-                                <h5 class="card-title poppins fw-bold text-light">Poli Kandungan</h5>
-                                <p class="card-text poppins text-light">Ini adalah contoh laman. Ini berbeda dengan
-                                    posting
-                                    blog karena akan
-                                    tetap berada di satu tempat dan akan muncul di website.</p>
-                                <a href="#" class="btn btn-outline-light">Booking Antrian</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="max-width: 500px;">
-                    <div class="row g-0">
-                        <div class="col-md-5">
-                            <img src="image/tht.jpg" class="card-img-top h-100 bw" alt="...">
-                        </div>
-                        <div class="col-md-7">
-                            <div class="card-body" style="background: #5BD5CF;">
-                                <h5 class="card-title poppins fw-bold text-light">Poli THT</h5>
-                                <p class="card-text poppins text-light">Ini adalah contoh laman. Ini berbeda dengan
-                                    posting
-                                    blog karena akan
-                                    tetap berada di satu tempat dan akan muncul di website.</p>
-                                <a href="#" class="btn btn-outline-light">Booking Antrian</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 
@@ -247,22 +153,22 @@
         <h3 class="poppins fw-bold text-light text-center">Antrian Poli</h3>
         <div class="row" style="padding-left:1%;">
             <div class="col-2">
-                <h1 class="poppins text-light fw-bold text-center" style="font-size:60px">15</h1>
+                <h1 class="poppins text-light fw-bold text-center" style="font-size:60px">{{ $antrian1 -> count() }}</h1>
             </div>
             <div class="col-2">
-                <h1 class="poppins text-light fw-bold text-center" style="font-size:60px">15</h1>
+                <h1 class="poppins text-light fw-bold text-center" style="font-size:60px">{{ $antrian2 -> count() }}</h1>
             </div>
             <div class="col-2">
-                <h1 class="poppins text-light fw-bold text-center" style="font-size:60px">15</h1>
+                <h1 class="poppins text-light fw-bold text-center" style="font-size:60px">{{ $antrian3 -> count() }}</h1>
             </div>
             <div class="col-2">
-                <h1 class="poppins text-light fw-bold text-center" style="font-size:60px">15</h1>
+                <h1 class="poppins text-light fw-bold text-center" style="font-size:60px">{{ $antrian4 -> count() }}</h1>
             </div>
             <div class="col-2">
-                <h1 class="poppins text-light fw-bold text-center" style="font-size:60px">15</h1>
+                <h1 class="poppins text-light fw-bold text-center" style="font-size:60px">{{ $antrian5 -> count() }}</h1>
             </div>
             <div class="col-2">
-                <h1 class="poppins text-light fw-bold text-center" style="font-size:60px">15</h1>
+                <h1 class="poppins text-light fw-bold text-center" style="font-size:60px">{{ $antrian6 -> count() }}</h1>
             </div>
         </div>
     </div>
@@ -305,17 +211,24 @@
                 <h5 class="poppins fw-bold">REVIEW PELAYANAN</h5>
                 <div class="card">
                     <div class="card-body">
-                        <form>
+                        @if (session('login'))
+                        @if ($user->role == "Pasien")
+                        <form action="/review/{{$user->id}}" method="POST">
+                        @endif
+                        @else
+                        <form action="" method="POST">
+                        @endif
+                            @csrf
                             <div class="mb-3">
                                 <label for="nama" class="form-label">Nama Anda</label>
-                                <input type="text" class="form-control" id="nama">
+                                <input type="text" class="form-control" id="nama" name="nama"> 
                             </div>
                             <div class="mb-3">
                                 <label for="feedback" class="form-label">Feedback</label>
-                                <textarea class="form-control" id="feedback" rows="3"></textarea>
+                                <textarea class="form-control" id="feedback" rows="3" name="review"></textarea>
                             </div>
                             <div class="center">
-                                <a href=" " class="btn btn-2">Kirim</a>
+                                <button type="submit" class="btn btn-2">Kirim</button>
                             </div>
                         </form>
                     </div>
