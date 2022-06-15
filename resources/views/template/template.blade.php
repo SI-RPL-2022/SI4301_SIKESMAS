@@ -56,6 +56,7 @@
                     @elseif ($user->role == "Admin")
                     <a class="nav-link" href="/">Home</a>
                     <a class="nav-link" href="admin/daftarantrian">Daftar Antrian</a>
+                    <a class="nav-link" href="/daftarKamar">Daftar Kamar</a>
                     <a class="nav-link" href="/daftarpasien">Data Puskesmas</a>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

@@ -36,7 +36,6 @@
                     <a class="nav-link" href="/home">Home</a>
                     <a class="nav-link" href="/admin">Daftar Admin</a>
                     <a class="nav-link" href="{{ route('indexDokter') }}">Daftar Dokter</a>
-                    <a class="nav-link" href="/daftarKamar">Daftar Kamar</a>
                     <a class="nav-link" href="{{ route('logoutAdmin') }}">Logout</a>
                 </div>
             </div>

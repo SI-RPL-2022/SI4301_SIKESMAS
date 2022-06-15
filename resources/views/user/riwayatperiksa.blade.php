@@ -12,7 +12,7 @@
                     <th scope="col">Nama Dokter</th>
                     <th scope="col">Poli Layanan</th>
                     <th scope="col">Waktu Periksa</th>
-                    <th scope="col">Hasil Periksa Periksa</th>
+                    <th scope="col">Hasil Periksa</th>
                     <th scope="col">Tindakan</th>
                     <th scope="col">Status</th>
                 </tr>
@@ -47,7 +47,7 @@
                     <td><a href="hasilPeriksa/{{$a->id}}" class="btn btn-2">LIHAT</a></td>
                     <td>{{$a->tindakan}}</td>
                     <td><b>{{$a->status_antrian}}</b></td>
-                    @elseif ($a->status == "Pasien Di Rawat")
+                    @elseif ($a->status_antrian == "Selesai")
                     <td>{{$loop->iteration}}</td>
                     <td>{{$a->no_antrian}}</td>
                     <td>{{$a->dokter->nama}}</td>

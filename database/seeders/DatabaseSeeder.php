@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             poli::class,
             superadmin::class,
+            dokter::class,
         ]);
     }
 }

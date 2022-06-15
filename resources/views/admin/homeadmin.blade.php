@@ -26,17 +26,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card layout9 text-center">
-                    <img src="image/bed.png" style="display:block; margin:auto;" height="150px" width="150px:"
-                        alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Disini anda bisa menambahkan kamar untuk,
-                            daftar kamar Sikesmas.</p>
-                        <a href="/tambahkamar" class="btn btn-2 poppins fw-bold">Tambah Kamar</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

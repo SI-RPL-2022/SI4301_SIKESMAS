@@ -1,7 +1,6 @@
-@extends('template.templateadmin')
+@extends('template.template')
 @section('content')
 <div class="container-fluid sm layout8">
-    <h3 class="poppins">Welcome, <b>{{ $superadmin -> username }}</b></h3>
     <div class="container sm" style="margin-top:50px;">
         <h5 class="poppins fw-bold" style="color:#DA2871">Update Kamar</h5>
         <div class="container sm" style="">

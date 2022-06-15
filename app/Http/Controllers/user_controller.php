@@ -203,10 +203,11 @@ class user_controller extends Controller
         
     }
 
-    public function resepObat(){
+    public function resepObat($id){
         $id_user = session('id');
         $user = User::where('id',$id_user)->firstOrFail();
-        return view('user.resepObat',compact('user'));
+        $antrian = antrian_model::where('id',$id)->firstOrFail();
+        return view('user.resepObat',compact('user','antrian'));
     }
     public function book($id){
         $id_user = session('id');
@@ -227,6 +228,14 @@ class user_controller extends Controller
             'jumlah_kamar' => $kamar->jumlah_kamar-1
         ]);
 
+        return redirect('/')->with('berhasil_book','Silahkan Lanjutkan administrasi di Kasir');
+    }
+
+    public function rawatjalan($id){
+        antrian_model::find($id)->update([
+            'status' => 'Pasien Rawat Jalan',
+            'status_antrian' => 'Selesai'
+        ]);
         return redirect('/')->with('berhasil_book','Silahkan Lanjutkan administrasi di Kasir');
     }
 
