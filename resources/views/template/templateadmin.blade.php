@@ -17,10 +17,11 @@
 <body>
     <script src="js/bootstrap.js"></script>
     <script src="js/popper.min.js"></script>
+    <script src="js/Chart.js"></script>
 
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <img src="image/logo.png" alt="" width="70" height="70" class="d-inline-block align-text-top" href="#">
+            <img src="{{asset('image/logo.png')}}" alt="" width="70" height="70" class="d-inline-block align-text-top" href="#">
             <a class="navbar-brand" href="#"
                 style="font-family:Poppins; font-size:25px; font-weight:bold; color:#DA2871;">
                 Sikesmas
@@ -35,6 +36,7 @@
                     <a class="nav-link" href="/home">Home</a>
                     <a class="nav-link" href="/admin">Daftar Admin</a>
                     <a class="nav-link" href="{{ route('indexDokter') }}">Daftar Dokter</a>
+                    <a class="nav-link" href="/daftarKamar">Daftar Kamar</a>
                     <a class="nav-link" href="{{ route('logoutAdmin') }}">Logout</a>
                 </div>
             </div>

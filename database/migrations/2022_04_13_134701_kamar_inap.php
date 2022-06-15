@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('review', function (Blueprint $table) {
+        Schema::create('kamar_inap', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
-            $table->foreignId('id_pasien');
-            $table->string('nama_pasien');
-            $table->string('review',1000);
-            $table->timestamps();
-
-            $table->foreign('id_pasien')->references('id')->on('user');
+            $table->string('nama_kamar');
+            $table->string('tipe_kamar');
+            $table->bigInteger('harga');
+            $table->integer('jumlah_kamar');
+            $table->string('foto');
         });
     }
 
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('review');
+        Schema::dropIfExists('kamar_inap');
     }
 };

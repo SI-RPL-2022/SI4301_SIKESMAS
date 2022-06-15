@@ -7,9 +7,12 @@ use App\Models\superadmin_model;
 use App\Models\admin_model;
 use App\Models\dokter_model;
 use App\Models\antrian_model;
+use App\Models\kamar_model;
 use App\Models\User;
+use App\Models\keluhan_model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class admin_controller extends Controller
 {
@@ -27,6 +30,11 @@ class admin_controller extends Controller
     {
         $dokter = User::where('role','Dokter')->with('poli')->get();
         return view('admin.daftardokter', compact('dokter'));
+    }
+    public function indexKamar()
+    {
+        $kamar = kamar_model::all();
+        return view('admin.daftarkamar', compact('kamar'));
     }
 
     /**
@@ -76,6 +84,20 @@ class admin_controller extends Controller
             ]);
             return redirect('/home');
         }
+    }
+    public function tambahkamar(Request $request)
+    {
+        $imgName = $request->img_path->getClientOriginalName() . '-' . time()
+                    . '.' . $request->img_path->extension();
+        $request->img_path->move(public_path('image_kamar'), $imgName);
+        kamar_model::create([
+            'nama_kamar' => $request ->nama,
+            'harga' => $request ->harga,
+            'jumlah_kamar' => $request ->kuota,
+            'tipe_kamar' => $request ->tipe,
+            'foto' => $imgName
+        ]);
+        return redirect('/home');
     }
 
     /**
@@ -170,5 +192,69 @@ class admin_controller extends Controller
         ]);
 
         return redirect("/admin/daftarantrian");
+    }
+
+    public function daftarpasien() {
+        $id_user = session('id');
+        $user = User::where('id',$id_user)->firstOrFail();
+        $review = keluhan_model::all();
+        $pasien = antrian_model::addSelect(DB::raw('COUNT("*") as pasien'))->GroupBy(DB::raw("DATE(created_at)"))->pluck('pasien');
+        $hari = antrian_model::select(DB::raw("DATE(created_at) as hari"))->GroupBy(DB::raw("DATE(created_at)"))->pluck('hari');
+
+        return view('admin.daftarpasien',compact('pasien','hari','user','review'));
+    }
+
+    public function gantidokter($id){
+        $id_superadmin = session('id_superadmin');
+        $superadmin = superadmin_model::where('id_superadmin',$id_superadmin)->firstOrFail();
+        $dokter = User::find($id);
+
+        return view('admin.updatedokter',compact('dokter'));
+    }
+
+    public function dokterupdate($id, Request $request){
+        User::find($id)->update([
+            'nama' => $request ->nama,
+            'id_poli' => $request ->poli,
+            'jam_praktik_awal' => $request ->jam1,
+            'jam_praktik_akhir' => $request ->jam2,
+            'username' => $request ->username
+        ]);
+        return redirect('/indexDokter');
+    }
+
+    public function gantiadmin($id){
+        $id_superadmin = session('id_superadmin');
+        $superadmin = superadmin_model::where('id_superadmin',$id_superadmin)->firstOrFail();
+        $admin = User::find($id);
+
+        return view('admin.updateadmin',compact('admin','superadmin'));
+    }
+
+    public function adminupdate($id, Request $request){
+        User::find($id)->update([
+            'nama' => $request ->nama,
+            'no_hp' => $request ->noHP,
+            'username' => $request ->username,
+        ]);
+        return redirect('/admin');
+    }
+
+    public function gantikamar($id){
+        $id_superadmin = session('id_superadmin');
+        $superadmin = superadmin_model::where('id_superadmin',$id_superadmin)->firstOrFail();
+        $kamar = kamar_model::find($id);
+
+        return view('admin.updatekamar',compact('kamar','superadmin'));
+    }
+
+    public function kamarupdate($id, Request $request){
+        kamar_model::find($id)->update([
+            'nama_kamar' => $request ->nama,
+            'harga' => $request ->harga,
+            'jumlah_kamar' => $request ->kuota,
+            'tipe_kamar' => $request ->tipe
+        ]);
+        return redirect('/daftarKamar');
     }
 }

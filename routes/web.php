@@ -24,14 +24,28 @@ Route::get('/', function () {
         $id = session('id');
         $user = User::where('id',$id)->firstOrFail();
         $antrian = antrian_model::all();
+        $poli = poli_model::orderBy('id','asc')->get();
         if ($user->role == "Pasien" or $user->role == "Admin"){
             $antrian = antrian_model::all();
-            return view('home',compact('user','antrian'));
+            $antrian1 = antrian_model::where('id_poli',1)->where('status_antrian','Berjalan')->get();
+            $antrian2 = antrian_model::where('id_poli',2)->where('status_antrian','Berjalan')->get();
+            $antrian3 = antrian_model::where('id_poli',3)->where('status_antrian','Berjalan')->get();
+            $antrian4 = antrian_model::where('id_poli',4)->where('status_antrian','Berjalan')->get();
+            $antrian5 = antrian_model::where('id_poli',5)->where('status_antrian','Berjalan')->get();
+            $antrian6 = antrian_model::where('id_poli',6)->where('status_antrian','Berjalan')->get();
+            return view('home',compact('user','antrian','antrian1','antrian2','antrian3','antrian4','antrian5','antrian6','poli'));
         }elseif ($user->role == "Dokter"){
             return view('dokter.home',compact('user'));
         }  
     }else{
-        return view('home');
+        $antrian1 = antrian_model::where('id_poli',1)->where('status_antrian','Berjalan')->get();
+        $antrian2 = antrian_model::where('id_poli',2)->where('status_antrian','Berjalan')->get();
+        $antrian3 = antrian_model::where('id_poli',3)->where('status_antrian','Berjalan')->get();
+        $antrian4 = antrian_model::where('id_poli',4)->where('status_antrian','Berjalan')->get();
+        $antrian5 = antrian_model::where('id_poli',5)->where('status_antrian','Berjalan')->get();
+        $antrian6 = antrian_model::where('id_poli',6)->where('status_antrian','Berjalan')->get();
+        $poli = poli_model::orderBy('id','asc')->get();
+        return view('home',compact('antrian1','antrian2','antrian3','antrian4','antrian5','antrian6','poli'));
     }
 });
 
@@ -40,31 +54,31 @@ Route::get('/layanan', function () {
         $id = session('id');
         $user = User::where('id',$id)->firstOrFail();
         $poli = poli_model::orderBy('id','asc')->get();
-        $antrian1 = antrian_model::where('id_poli',1)->get();
-        $antrian2 = antrian_model::where('id_poli',2)->get();
-        $antrian3 = antrian_model::where('id_poli',3)->get();
-        $antrian4 = antrian_model::where('id_poli',4)->get();
-        $antrian5 = antrian_model::where('id_poli',5)->get();
-        $antrian6 = antrian_model::where('id_poli',6)->get();
+        $antrian1 = antrian_model::where('id_poli',1)->where('status_antrian','Berjalan')->get();
+        $antrian2 = antrian_model::where('id_poli',2)->where('status_antrian','Berjalan')->get();
+        $antrian3 = antrian_model::where('id_poli',3)->where('status_antrian','Berjalan')->get();
+        $antrian4 = antrian_model::where('id_poli',4)->where('status_antrian','Berjalan')->get();
+        $antrian5 = antrian_model::where('id_poli',5)->where('status_antrian','Berjalan')->get();
+        $antrian6 = antrian_model::where('id_poli',6)->where('status_antrian','Berjalan')->get();
         return view('user.layanan',compact('user','poli','antrian1','antrian2','antrian3','antrian4','antrian5','antrian6'));
     }else{
-        $antrian1 = antrian_model::where('id_poli',1)->get();
-        $antrian2 = antrian_model::where('id_poli',2)->get();
-        $antrian3 = antrian_model::where('id_poli',3)->get();
-        $antrian4 = antrian_model::where('id_poli',4)->get();
-        $antrian5 = antrian_model::where('id_poli',5)->get();
-        $antrian6 = antrian_model::where('id_poli',6)->get();
+        $antrian1 = antrian_model::where('id_poli',1)->where('status_antrian','Berjalan')->get();
+        $antrian2 = antrian_model::where('id_poli',2)->where('status_antrian','Berjalan')->get();
+        $antrian3 = antrian_model::where('id_poli',3)->where('status_antrian','Berjalan')->get();
+        $antrian4 = antrian_model::where('id_poli',4)->where('status_antrian','Berjalan')->get();
+        $antrian5 = antrian_model::where('id_poli',5)->where('status_antrian','Berjalan')->get();
+        $antrian6 = antrian_model::where('id_poli',6)->where('status_antrian','Berjalan')->get();
         $poli = poli_model::orderBy('id','asc')->get();
         return view('user.layanan',compact('poli','antrian1','antrian2','antrian3','antrian4','antrian5','antrian6'));
     }
 });
 
-Route::get('/HasilPeriksa', function () {
+Route::get('/riwayatperiksa', function () {
     if (session('login')){
         $id = session('id');
         $user = User::where('id',$id)->firstOrFail();
         $antrian = antrian_model::where('id_pasien',$id)->with('poli','dokter')->get();
-        return view('user.hasilPeriksa',compact('user','antrian'));
+        return view('user.riwayatperiksa',compact('user','antrian'));
     }else{
         return redirect('/');
     }
@@ -88,6 +102,18 @@ Route::get('/profil', function () {
     }
 });
 
+Route::get('/jadwal-dokter', function () {
+    if (session('login')){
+        $id = session('id');
+        $user = User::where('id',$id)->firstOrFail();
+        $dokter = User::where('role','Dokter')->with('poli')->get();
+        return view('user.dokterJaga',compact('user','dokter'));
+    }else{
+        $dokter = User::where('role','Dokter')->with('poli')->get();
+        return view('user.dokterJaga',compact('dokter'));
+    }
+});
+
 Route::get('/jadwalDokter', function () {
     if (session('login')){
         $id = session('id');
@@ -108,7 +134,11 @@ Route::post('login', 'user_controller@login')->name('login');
 Route::get('logout', 'user_controller@logout')->name('logout');
 Route::post('layanan/{poli}/{dokter}/input', 'user_controller@antrianStore');
 Route::get('/ResepObat', 'user_controller@resepObat');
-Route::get('/BookingKamar', 'user_controller@book');
+Route::get('hasilPeriksa/{antrian}', 'user_controller@hasilPeriksa');
+Route::get('/BookingKamar/{antrian}', 'user_controller@book');
+Route::put('/BookingKamar/booking/{antrian}/{kamar}', 'user_controller@booking');
+Route::post('/review/{pasien}', 'user_controller@review');
+
 
 // Dokter
 Route::get('/dokter/antrianPasien', 'dokter_controller@antrianPasien');
@@ -141,6 +171,15 @@ Route::get('/tambahadmin', function () {
         return view('admin.tambahadmin');
     }
 });
+Route::get('/tambahkamar', function () {
+    if (session('loginAdmin')){
+        $id = session('id_superadmin');
+        $superadmin = superadmin_model::where('id_superadmin',$id)->firstOrFail();
+        return view('admin.tambahkamar',compact('superadmin'));
+    }else{
+        return view('admin.loginadmin');
+    }
+});
 Route::get('/tambahdokter', function () {
     return view('admin.tambahdokter');
 });
@@ -149,7 +188,7 @@ Route::get('admin/daftarantrian', function () {
     if (session('login')){
         $id = session('id');
         $user = User::where('id',$id)->firstOrFail();
-        $antrian = antrian_model::orderBy('id','asc')->with('poli','pasien')->get();
+        $antrian = antrian_model::orderBy('id','asc')->where('status_antrian','Berjalan')->with('poli','pasien')->get();
         return view('admin.daftarantrian',compact('user','antrian'));
     }else{
         return view('home');
@@ -161,8 +200,17 @@ Route::post('loginAdmin', 'admin_controller@login')->name('loginAdmin');
 Route::get('logoutAdmin', 'admin_controller@logout')->name('logoutAdmin');
 Route::post('tambahdokter', 'admin_controller@tambahdokter')->name('tambahdokter');
 Route::get('indexDokter', 'admin_controller@indexDokter')->name('indexDokter');
+Route::get('/daftarKamar', 'admin_controller@indexKamar');
 Route::get('admin/KeluhanPasien/{antrian}', 'admin_controller@inputKeluhan');
 Route::put('/admin/KeluhanPasien/inputkeluhan/{antrian}', 'admin_controller@InputanKeluhan');
 Route::delete('/delete/dokter/{dokter}', 'admin_controller@delDokter');
 Route::delete('/delete/admin/{admin}', 'admin_controller@delAdmin');
+Route::get('/daftarpasien', 'admin_controller@daftarpasien');
+Route::post('/tambahkamar', 'admin_controller@tambahkamar');
+Route::get('/updatedokter/{id}', 'admin_controller@gantidokter');
+Route::put('/updatedokter/{id}', 'admin_controller@dokterupdate');
+Route::get('/updateadmin/{id}', 'admin_controller@gantiadmin');
+Route::put('/updateadmin/{id}', 'admin_controller@adminupdate');
+Route::get('/updatekamar/{id}', 'admin_controller@gantikamar');
+Route::put('/updatekamar/{id}', 'admin_controller@kamarupdate');
 

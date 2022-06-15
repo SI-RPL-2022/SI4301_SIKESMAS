@@ -8,12 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class keluhan_model extends Model
 {
     protected $primaryKey = 'id';
-    protected $table = "keluhan";
-    public $timestamps = false;
+    protected $table = "review";
     protected $fillable = [
+        'id_pasien',
         'nama_pasien',
-        'alamat',
-        'keluhan',
-        'lama_keluhan'
+        'review'
     ];
 }

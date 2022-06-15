@@ -25,7 +25,7 @@
                     <form action="/delete/admin/{{$i -> id}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <td><a class="btn btn-warning" href="" type="button">Edit</a> <button class="btn btn-danger">Delete</button></td>
+                        <td><a class="btn btn-warning" href="/updateadmin/{{$i->id}}" type="button">Edit</a> <button class="btn btn-danger">Delete</button></td>
                     </form>
                 </tr>
                 @endforeach

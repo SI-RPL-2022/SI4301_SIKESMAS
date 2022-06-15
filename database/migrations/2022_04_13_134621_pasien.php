@@ -26,8 +26,8 @@ return new class extends Migration
             $table->string('no_antrian')->nullable();
             $table->string('foto_profil')->nullable();
             $table->foreignId('id_poli')->nullable();
-            $table->string('jam_praktik_awal')->nullable();
-            $table->string('jam_praktik_akhir')->nullable();
+            $table->time('jam_praktik_awal')->nullable();
+            $table->time('jam_praktik_akhir')->nullable();
 
             $table->foreign('id_poli')->references('id')->on('poli');
         });

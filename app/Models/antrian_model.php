@@ -9,19 +9,20 @@ class antrian_model extends Model
 {
     protected $primaryKey = 'id';
     protected $table = "antrian";
-    public $timestamps = false;
     protected $fillable = [
         'no_antrian',
         'id_pasien',
         'id_dokter',
         'id_poli',
+        'id_kamar',
         'keluhan',
         'alamat',
         'lama_keluhan',   
         'hasil_periksa',   
         'tindakan',
         'waktu_periksa',
-        'status'
+        'status',
+        'status_antrian'
     ];
 
     public function poli()
@@ -35,5 +36,9 @@ class antrian_model extends Model
     public function dokter()
     {
         return $this->belongsTo(User::class,'id_dokter');
+    }
+    public function kamar()
+    {
+        return $this->belongsTo(kamar_model::class,'id_kamar');
     }
 }
