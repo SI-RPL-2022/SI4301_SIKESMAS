@@ -33,8 +33,10 @@ class admin_controller extends Controller
     }
     public function indexKamar()
     {
+        $id_user = session('id');
+        $user = User::where('id',$id_user)->firstOrFail();
         $kamar = kamar_model::all();
-        return view('admin.daftarkamar', compact('kamar'));
+        return view('admin.daftarkamar', compact('kamar','user'));
     }
 
     /**
@@ -97,7 +99,7 @@ class admin_controller extends Controller
             'tipe_kamar' => $request ->tipe,
             'foto' => $imgName
         ]);
-        return redirect('/home');
+        return redirect('/daftarKamar');
     }
 
     /**
@@ -241,11 +243,11 @@ class admin_controller extends Controller
     }
 
     public function gantikamar($id){
-        $id_superadmin = session('id_superadmin');
-        $superadmin = superadmin_model::where('id_superadmin',$id_superadmin)->firstOrFail();
+        $id_user = session('id');
+        $user = User::where('id',$id_user)->firstOrFail();
         $kamar = kamar_model::find($id);
 
-        return view('admin.updatekamar',compact('kamar','superadmin'));
+        return view('admin.updatekamar',compact('kamar','user'));
     }
 
     public function kamarupdate($id, Request $request){

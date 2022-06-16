@@ -1,11 +1,12 @@
-@extends('template.templateadmin')
+@extends('template.template')
 @section('content')
-<div class="container-fluid sm layout10">
-    <h5 class="poppins fw-bold" style="color:#DA2871">Daftar Kamar</h5>
-    <div class="container sm">
+<section id="daftarAntrian" class="py-5">
+    <div class="container">
+        <h3 class="text-center fw-bold title">Daftar Kamar</h3>
+        <a href="/tambahkamar" class="btn btn-2" style="margin-bottom:1rem;">Tambah Kamar</a>
         <table class="table table-borderless">
-            <thead style="background:#5BD5CF">
-                <tr>
+            <thead>
+                <tr class="text-center">
                     <th scope="col">No</th>
                     <th scope="col">Nama Ruangan</th>
                     <th scope="col">Tipe</th>
@@ -14,9 +15,9 @@
                     <th scope="col">Action</th>
                 </tr>
             </thead>
-            <tbody style="background:#F4F3EE">
+            <tbody>
                 @foreach ($kamar as $i)
-                <tr>
+                <tr class="baris text-center">
                     <td>{{$loop->iteration}}</td>
                     <td>{{ $i -> nama_kamar}}</td>
                     <td>{{ $i -> tipe_kamar}}</td>
@@ -32,5 +33,5 @@
             </tbody>
         </table>
     </div>
-</div>
+</section>
 @endsection

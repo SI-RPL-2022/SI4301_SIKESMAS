@@ -133,7 +133,8 @@ Route::get('layanan/{poli}', 'user_controller@jadwalDokter');
 Route::post('login', 'user_controller@login')->name('login');
 Route::get('logout', 'user_controller@logout')->name('logout');
 Route::post('layanan/{poli}/{dokter}/input', 'user_controller@antrianStore');
-Route::get('/ResepObat', 'user_controller@resepObat');
+Route::get('/ResepObat/{id}', 'user_controller@resepObat');
+Route::put('/ResepObat/{id}', 'user_controller@rawatjalan');
 Route::get('hasilPeriksa/{antrian}', 'user_controller@hasilPeriksa');
 Route::get('/BookingKamar/{antrian}', 'user_controller@book');
 Route::put('/BookingKamar/booking/{antrian}/{kamar}', 'user_controller@booking');
@@ -172,10 +173,10 @@ Route::get('/tambahadmin', function () {
     }
 });
 Route::get('/tambahkamar', function () {
-    if (session('loginAdmin')){
-        $id = session('id_superadmin');
-        $superadmin = superadmin_model::where('id_superadmin',$id)->firstOrFail();
-        return view('admin.tambahkamar',compact('superadmin'));
+    if (session('login')){
+        $id = session('id');
+        $user = User::where('id',$id)->firstOrFail();
+        return view('admin.tambahkamar',compact('user'));
     }else{
         return view('admin.loginadmin');
     }

@@ -45,6 +45,7 @@ class dokter_controller extends Controller
             'hasil_periksa' => $request ->hasil,
             'tindakan' => $request ->tindakan,
             'status' => 'Menunggu Respon Pasien'
+            
         ]);
 
         return redirect("/dokter/antrianPasien");
