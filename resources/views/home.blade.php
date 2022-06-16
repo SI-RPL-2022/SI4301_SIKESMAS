@@ -212,7 +212,11 @@
                 <div class="card">
                     <div class="card-body">
                         @if (session('login'))
+                        @if ($user->role == "Pasien")
                         <form action="/review/{{$user->id}}" method="POST">
+                        @endif
+                        @else
+                        <form action="" method="POST">
                         @endif
                             @csrf
                             <div class="mb-3">
@@ -224,11 +228,7 @@
                                 <textarea class="form-control" id="feedback" rows="3" name="review"></textarea>
                             </div>
                             <div class="center">
-                                @if (session('login'))
                                 <button type="submit" class="btn btn-2">Kirim</button>
-                                @else
-                                <a href="/login" class="btn btn-2">Kirim</a>
-                                @endif
                             </div>
                         </form>
                     </div>
