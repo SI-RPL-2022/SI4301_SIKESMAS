@@ -12,12 +12,6 @@
                     <label for="nik">NIK</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="bpjs" placeholder="No BPJS" name="bpjs" pattern=".{13,}" required title="13 characters minimum">
-
-                    <input type="number" class="form-control" id="nik" placeholder="NIK" name="nik">
-                    <label for="nik">NIK</label>
-                </div>
-                <div class="form-floating mb-3">
                     <input type="number" class="form-control" id="bpjs" placeholder="No BPJS" name="bpjs">
 
                     <label for="bpjs">No BPJS</label>
