@@ -7,18 +7,18 @@
             <form action="/pasien" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="nik" placeholder="NIK" name="nik">
+                    <input type="text" class="form-control" id="nik" placeholder="NIK" name="nik" pattern=".{16,}" required title="16 characters minimum">
                     <label for="nik">NIK</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="bpjs" placeholder="No BPJS" name="bpjs">
+                    <input type="text" class="form-control" id="bpjs" placeholder="No BPJS" name="bpjs" pattern=".{13,}" required title="13 characters minimum">
                     <label for="bpjs">No BPJS</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="nama" placeholder="Nama Lengkap" name="nama">
+                    <input type="text" class="form-control" id="nama" placeholder="Nama Lengkap" name="nama" required>
                     <label for="nama">Nama Lengkap</label>
                 </div>
-                <label for="exampleFormControlInput1" class="form-label">Jenis Kelamin</label>
+                <label for="exampleFormControlInput1" class="form-label" required>Jenis Kelamin</label>
                 <div class="mb-3">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="jenis_kelamin" id="inlineRadio1"
@@ -32,15 +32,15 @@
                     </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="noHP" placeholder="No. HP" name="noHP">
+                    <input type="number" class="form-control" id="noHP" placeholder="No. HP" name="noHP" required>
                     <label for="noHP">No. HP</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+                    <input type="text" class="form-control" id="username" placeholder="Username" name="username" required>
                     <label for="username">Username</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="pass" placeholder="password" name="pass">
+                    <input type="password" class="form-control" id="pass" placeholder="password" name="pass" required>
                     <label for="pass">Password</label>
                 </div>
                 <div class="layreg1 text-center">
