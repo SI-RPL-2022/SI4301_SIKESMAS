@@ -227,7 +227,7 @@
                                 @if (session('login'))
                                 <button type="submit" class="btn btn-2">Kirim</button>
                                 @else
-                                <a href="/login" class="btn btn-2">kirim</a>
+                                <a href="/login" class="btn btn-2">Kirim</a>
                                 @endif
                             </div>
                         </form>

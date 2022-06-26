@@ -175,6 +175,10 @@ class admin_controller extends Controller
         User::find($id)->delete();
         return redirect('/indexAdmin');
     }
+    public function delKamar($id){
+        kamar_model::find($id)->delete();
+        return redirect('/daftarKamar');
+    }
 
     public function inputKeluhan($id){
         $id_user = session('id');

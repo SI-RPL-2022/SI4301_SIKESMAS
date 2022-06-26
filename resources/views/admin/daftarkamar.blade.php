@@ -23,7 +23,7 @@
                     <td>{{ $i -> tipe_kamar}}</td>
                     <td>{{$i -> harga}}</td>
                     <td>{{ $i -> jumlah_kamar}}</td>
-                    <form action="/delete/dokter/{{$i -> id}}" method="POST">
+                    <form action="/delete/kamar/{{$i -> id}}" method="POST">
                         @csrf
                         @method('DELETE')
                         <td><a class="btn btn-warning" href="/updatekamar/{{$i->id}}" type="button">Edit</a> <button class="btn btn-danger">Delete</button></td>
