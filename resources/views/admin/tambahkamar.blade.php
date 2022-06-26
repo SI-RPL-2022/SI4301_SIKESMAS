@@ -1,4 +1,4 @@
-@extends('template.templateadmin')
+@extends('template.template')
 @section('content')
 <div class="container-fluid sm layout8">
     <div class="container sm" style="margin-top:50px;">

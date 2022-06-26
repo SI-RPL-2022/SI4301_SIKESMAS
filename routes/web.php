@@ -206,6 +206,7 @@ Route::get('admin/KeluhanPasien/{antrian}', 'admin_controller@inputKeluhan');
 Route::put('/admin/KeluhanPasien/inputkeluhan/{antrian}', 'admin_controller@InputanKeluhan');
 Route::delete('/delete/dokter/{dokter}', 'admin_controller@delDokter');
 Route::delete('/delete/admin/{admin}', 'admin_controller@delAdmin');
+Route::delete('/delete/kamar/{kamar}', 'admin_controller@delKamar');
 Route::get('/daftarpasien', 'admin_controller@daftarpasien');
 Route::post('/tambahkamar', 'admin_controller@tambahkamar');
 Route::get('/updatedokter/{id}', 'admin_controller@gantidokter');
